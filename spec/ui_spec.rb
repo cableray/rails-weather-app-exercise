@@ -20,8 +20,8 @@ RSpec.describe "Main web interface", type: :feature do
     Rails.cache.clear
   end
 
-  let(:query_address) {"1600 Pennsylvania Ave Washington DC 20500"}
-  let(:expected_resolved_address) {"1600 Pennsylvania Ave NW, Washington, DC 20500, United States"}
+  let(:query_address) { "1600 Pennsylvania Ave Washington DC 20500" }
+  let(:expected_resolved_address) { "1600 Pennsylvania Ave NW, Washington, DC 20500, United States" }
 
   it "has an address input field" do
     visit '/'
@@ -33,7 +33,7 @@ RSpec.describe "Main web interface", type: :feature do
   it "validates that the address includes a parsable zipcode" do
     visit '/'
 
-    # note that the address parser is greedy, so a large enough house number can be considered a zip. 
+    # note that the address parser is greedy, so a large enough house number can be considered a zip.
     # Skipping this edge case for now.
     fill_in "address", with: "123 Drury Lane"
     click_button

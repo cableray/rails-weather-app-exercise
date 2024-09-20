@@ -8,7 +8,7 @@ class ForcastController < ApplicationController
           @resolved_address =  result['resolvedAddress']
         end
       end
-      
+
       @temp = result['currentConditions']['temp']
     end
     # render
@@ -19,9 +19,9 @@ class ForcastController < ApplicationController
 
   def lookup_address(address)
     HTTPX.get(
-        "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{CGI.escape address}", 
-        params: {key: Rails.application.config.api_key, 
-        include: "current"}
+        "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{CGI.escape address}",
+        params: { key: Rails.application.config.api_key,
+        include: "current" }
         ).tap(&:raise_for_status).json
   end
 
