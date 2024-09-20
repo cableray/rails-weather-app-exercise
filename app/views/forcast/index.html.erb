@@ -1,0 +1,11 @@
+<%= form_with method: :get do |form| %>
+    <%= form.text_field 'address', value: @address, placeholder: "Address" %>
+    <%= form.submit %>
+<%end%>
+
+<%if @resolved_address%>
+<div id="resolved_address">Resolved Address: <%=@resolved_address%></div>
+<%end%>
+<%if @temp%>
+<div id="temp">Currently: <%=@temp%> degrees</div>
+<%end%>
